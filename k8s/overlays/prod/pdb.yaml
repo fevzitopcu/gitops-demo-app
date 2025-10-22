@@ -1,0 +1,10 @@
+# k8s/overlays/prod/pdb.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: demo-app-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: demo-app

@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev
+
+resources:
+  - ../../base
+
+commonLabels:
+  environment: dev
+
+replicas:
+  - name: demo-app
+    count: 1
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/memory
+        value: "64Mi"
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/cpu
+        value: "50m"
+    target:
+      kind: Deployment
+      name: demo-app
+
+configMapGenerator:
+  - name: demo-app-config
+    behavior: merge
+    literals:
+      - NODE_ENV=development
+      - LOG_LEVEL=debug
+
+images:
+  - name: your-registry/demo-app
+    newTag: dev-latest

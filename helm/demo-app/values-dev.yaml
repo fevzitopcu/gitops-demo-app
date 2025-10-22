@@ -1,0 +1,27 @@
+replicaCount: 1
+
+image:
+  tag: "dev-latest"
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+ingress:
+  enabled: true
+  hosts:
+    - host: demo-app-dev.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+
+config:
+  nodeEnv: development
+  logLevel: debug
+
+autoscaling:
+  enabled: false
