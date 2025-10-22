@@ -28,6 +28,6 @@ configMapGenerator:
 images:
 - name: ghcr.io/fevzitopcu/gitops-demo-app/demo-app
   newName: ghcr.io/fevzitopcu/gitops-demo-app/demo-app
-  newTag: be9f43fea29d9446723e095feeacd0ac1ec09be4
+  newTag: 2cdaf680f5f992d29450e5af0db91b9b10f76d60
 - name: your-registry/demo-app
   newTag: dev-latest
