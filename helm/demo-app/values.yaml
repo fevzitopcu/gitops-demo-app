@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: your-registry/demo-app
+  repository: ghcr.io/fevzitopcu/gitops-demo-app/demo-app
   pullPolicy: IfNotPresent
   tag: "latest"
 
