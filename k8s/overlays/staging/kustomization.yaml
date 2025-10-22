@@ -22,5 +22,5 @@ configMapGenerator:
       - LOG_LEVEL=info
 
 images:
-  - name: your-registry/demo-app
+  - name: ghcr.io/fevzitopcu/gitops-demo-app/demo-app
     newTag: staging-v1.0.0
