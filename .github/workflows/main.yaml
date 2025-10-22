@@ -71,7 +71,6 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
 
       - name: Build and push
-        id: build
         uses: docker/build-push-action@v5
         with:
           context: ./app
@@ -82,7 +81,7 @@ jobs:
           cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
 
       - name: Image digest
-        run: echo "Image digest: ${{ steps.build.outputs.digest }}"
+        run: echo "Image digest: ${{ steps.meta.outputs.digest }}"
 
   update-manifest:
     name: Update K8s Manifest
