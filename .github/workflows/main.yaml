@@ -68,7 +68,7 @@ jobs:
           cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
           cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
       - name: Image digest
-        run: echo "Image digest: ${{ steps.build.outputs.digest }}"
+        run: echo "Image digest"
   
   update-manifest:
     name: Update K8s Manifest
